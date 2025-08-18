@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { BaseComponent } from './layout/base/base.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BaseComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {
