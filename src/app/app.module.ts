@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { registerLocaleData } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 import { BaseComponent } from './layout/base/base.component';
 import { HttpInterceptor } from './utils/interceptors/http.interceptor';
@@ -14,7 +14,7 @@ registerLocaleData(localePt);
 
 @NgModule({
   declarations: [AppComponent, BaseComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     {
       provide: LOCALE_ID,
