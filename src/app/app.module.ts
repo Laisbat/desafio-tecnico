@@ -11,6 +11,15 @@ import localePt from '@angular/common/locales/pt';
 import { BaseComponent } from './layout/base/base.component';
 import { HttpInterceptor } from './utils/interceptors/http.interceptor';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import {
+  MatSidenavContainer,
+  MatSidenavContent,
+} from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -20,6 +29,12 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatSidenavContainer,
+    MatSidenavContent,
+    MatSnackBarModule,
   ],
   providers: [
     {
