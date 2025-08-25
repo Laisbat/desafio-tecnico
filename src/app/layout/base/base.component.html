@@ -1,2 +1,21 @@
-<p>base works!</p>
-<router-outlet />
+<mat-sidenav-container class="app-container">
+  <mat-sidenav-content class="app-content">
+    <header class="app-header">
+      <mat-toolbar>
+        <span>Desafio técnico - Angular</span>
+        <a
+          mat-icon-button
+          class="github-button"
+          href="https://github.com/Laisbat/desafio-tecnico"
+          target="_blank"
+          aria-label="GitHub Repository"
+        >
+          <mat-icon svgIcon="github" />
+        </a>
+      </mat-toolbar>
+    </header>
+    <main class="app-main">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
