@@ -38,4 +38,4 @@ jobs:
         run: npm run build --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts
-        run: vercel deploy --prebuilt
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
