@@ -1,1 +1,16 @@
-{"projectId":"prj_9PaJiA7yXOWBXpEu6TUa3jl21mFb","orgId":"team_iKU9hOIR1qKAuMRQT8uZzDaz","projectName":"desafio-tecnico-undp"}
+{
+  "projectId": "prj_9PaJiA7yXOWBXpEu6TUa3jl21mFb",
+  "orgId": "team_iKU9hOIR1qKAuMRQT8uZzDaz",
+  "projectName": "desafio-tecnico-undp",
+  "settings": {
+    "createdAt": 1756216103330,
+    "framework": "angular",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}
