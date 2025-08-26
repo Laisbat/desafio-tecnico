@@ -71,7 +71,6 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
 
     this._usuariosService.getUsuarios().subscribe({
       next: (data: Usuario[]) => {
-        console.log('Dados dos usuários:', data);
         const users: Usuario[] = data.map((user) => ({
           id: user.id,
           name: user.name,

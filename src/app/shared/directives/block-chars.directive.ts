@@ -12,7 +12,6 @@ export class BlockCharsDirective {
 
   @HostListener('keydown', ['$event'])
   onKeyDown(event: KeyboardEvent): void {
-    console.log('onKeyDown', event, this.blocked);
     if (this.blocked.includes(event.key)) {
       event.preventDefault();
     }
