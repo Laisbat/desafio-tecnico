@@ -1,0 +1,241 @@
+.usuarios-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.usuarios-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: var(--custom-border-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0 0 8px 0;
+    color: var(--custom-secondary);
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--custom-secondary);
+    font-weight: 400;
+    opacity: 0.8;
+  }
+}
+
+.table-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  .mat-elevation-z8 {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+  border-radius: var(--custom-border-radius);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+}
+
+.list-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 0;
+
+    .mat-mdc-form-field-wrapper {
+      border-radius: var(--custom-border-radius) !important;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  button {
+    flex: 0 0 auto;
+    border-radius: 50% !important;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    margin-bottom: 4px;
+
+    .mat-icon {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    padding: 0.5rem;
+
+    .mat-elevation-z8 {
+      border-radius: 8px;
+    }
+  }
+}
+
+.mat-elevation-z8 {
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+td.mat-cell:last-child {
+  width: 120px;
+  text-align: center;
+}
+
+.mat-raised-button {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .list-actions & {
+    border-radius: 50% !important;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.mat-mdc-row {
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(63, 81, 181, 0.04) !important;
+  }
+}
+
+.mat-mdc-header-row {
+  background: var(--mdc-theme-on-secondary-container);
+
+  .mat-mdc-header-cell {
+    color: white;
+    font-weight: 600;
+    border-bottom: none;
+  }
+}
+
+.mat-mdc-paginator {
+  background: linear-gradient(
+    135deg,
+    var(--custom-surface) 0%,
+    var(--custom-surface-variant) 100%
+  );
+  border-top: 1px solid var(--custom-outline);
+}
+
+.edit-icon {
+  color: var(--custom-primary);
+}
+
+.delete-icon {
+  color: var(--mdc-theme-on-secondary-container);
+}
+
+.status-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+  &.active {
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3),
+      0 0 0 2px rgba(76, 175, 80, 0.1);
+  }
+
+  &.inactive {
+    background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
+    box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3),
+      0 0 0 2px rgba(244, 67, 54, 0.1);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  &.active::before {
+    background-color: rgba(76, 175, 80, 0.3);
+  }
+
+  &.inactive::before {
+    background-color: rgba(244, 67, 54, 0.3);
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+}
+
+.custom-button {
+  background-color: indigo !important;
+  position: relative;
+  overflow: hidden;
+}

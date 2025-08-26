@@ -1,0 +1,370 @@
+::ng-deep .cdk-overlay-backdrop {
+  background: linear-gradient(
+    135deg,
+    rgba(63, 81, 181, 0.1) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(48, 63, 159, 0.1) 100%
+  ) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+h2[mat-dialog-title] {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(63, 81, 181, 0.1) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(48, 63, 159, 0.1) 100%
+  ) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: none;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 24px;
+  margin: 0;
+}
+
+h2[mat-dialog-title]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+h2[mat-dialog-title]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+mat-dialog-content {
+  padding: 24px;
+  background: transparent;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+}
+
+mat-dialog-content::before {
+  content: "";
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+}
+
+mat-dialog-content p:first-child {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  font-size: 16px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: transparent;
+  border-radius: var(--custom-border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+mat-card {
+  /* background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.12) 50%,
+          rgba(255, 255, 255, 0.18) 100%
+        ) !important; */
+  background: transparent !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  border-radius: var(--custom-border-radius) !important;
+  overflow: hidden;
+  margin: 16px 0;
+  position: relative;
+}
+
+mat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+mat-card-header {
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px !important;
+}
+
+.header-image {
+  background-image: url("https://material.angular.dev/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+mat-card-title {
+  color: rgba(0, 0, 0, 0.95) !important;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+}
+
+mat-card-subtitle {
+  color: rgba(0, 0, 0, 0.75) !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.warning-text {
+  display: flex;
+  align-items: center;
+  color: #d32f2f;
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(244, 67, 54, 0.15) 0%,
+    rgba(244, 67, 54, 0.08) 50%,
+    rgba(244, 67, 54, 0.12) 100%
+  );
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(244, 67, 54, 0.25);
+  border-radius: var(--custom-border-radius);
+  border-left: 4px solid rgba(244, 67, 54, 0.8);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  font-weight: 600;
+}
+
+.warning-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(244, 67, 54, 0.1) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.warning-text mat-icon {
+  margin-right: 12px;
+  filter: drop-shadow(0 2px 6px rgba(244, 67, 54, 0.3));
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+mat-dialog-actions {
+  padding: 20px 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(63, 81, 181, 0.1) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(48, 63, 159, 0.1) 100%
+  ) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0 0 var(--custom-border-radius-large)
+    var(--custom-border-radius-large);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 -4px 16px rgba(63, 81, 181, 0.2);
+  position: relative;
+}
+
+mat-dialog-actions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+mat-dialog-actions button {
+  margin-left: 12px;
+  min-width: 120px;
+  padding: 12px 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--custom-border-radius) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+mat-dialog-actions button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: left 0.8s ease;
+  z-index: 1;
+}
+
+mat-dialog-actions button:hover::before {
+  left: 100%;
+}
+
+mat-dialog-actions button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25),
+    0 6px 20px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+
+mat-dialog-actions button:active {
+  transform: translateY(-2px) scale(0.98);
+  transition: all 0.15s ease;
+}
+
+mat-dialog-actions button:not([color="warn"]) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.25) 100%
+    );
+    color: white;
+  }
+}
+
+mat-dialog-actions button[color="warn"] {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 67, 54, 0.9) 0%,
+    rgba(211, 47, 47, 0.95) 50%,
+    rgba(244, 67, 54, 1) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4), 0 2px 10px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(244, 67, 54, 1) 0%,
+      rgba(211, 47, 47, 1) 50%,
+      rgba(244, 67, 54, 1) 100%
+    );
+    box-shadow: 0 12px 32px rgba(244, 67, 54, 0.5),
+      0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}

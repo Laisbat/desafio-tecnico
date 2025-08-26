@@ -11,8 +11,22 @@ const routes: Routes = [
   {
     path: '',
     component: BaseComponent,
-    loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesModule),
+    children: [
+      {
+        path: 'usuarios',
+        loadChildren: () =>
+          import('./pages/usuarios/usuarios.module').then(
+            (m) => m.UsuariosModule
+          ),
+      },
+      {
+        path: 'usuarios/:id',
+        loadChildren: () =>
+          import('./pages/usuarios-adicionar/usuarios-adicionar.module').then(
+            (m) => m.UsuariosAdicionarModule
+          ),
+      },
+    ],
   },
 ];
 
