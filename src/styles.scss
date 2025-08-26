@@ -1,4 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./theme.scss" as *;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  &:not([class*="mat-"]):not([class*="mdc-"]) {
+    &.rounded {
+      border-radius: var(--custom-border-radius);
+    }
+
+    &.rounded-small {
+      border-radius: var(--custom-border-radius-small);
+    }
+
+    &.rounded-large {
+      border-radius: var(--custom-border-radius-large);
+    }
+  }
+}
+
+.custom-dialog-container {
+  .mat-mdc-dialog-container {
+    border-radius: var(--custom-border-radius-large) !important;
+    overflow: hidden;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12) !important;
+  }
+}
+
+.mat-icon {
+  color: var(--custom-primary-contrast);
+}
+
+::ng-deep {
+  .success-snackbar {
+    background: linear-gradient(
+      135deg,
+      var(--custom-success) 0%,
+      var(--custom-success-dark) 100%
+    ) !important;
+    color: white !important;
+  }
+
+  .error-snackbar {
+    background: linear-gradient(
+      135deg,
+      var(--custom-error) 0%,
+      var(--custom-error-dark) 100%
+    ) !important;
+    color: white !important;
+  }
+
+  .warning-snackbar {
+    background: linear-gradient(
+      135deg,
+      var(--custom-warning) 0%,
+      var(--custom-warning-dark) 100%
+    ) !important;
+    color: white !important;
+  }
+}
+
+.mdc-button {
+  border-radius: var(--custom-border-radius) !important;
+  letter-spacing: 0.5px !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
