@@ -3,7 +3,6 @@ export interface Usuario {
   name: string;
   username: string;
   email: string;
-  status: boolean;
   address: {
     street: string;
     suite: string;
