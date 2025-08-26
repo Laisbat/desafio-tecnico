@@ -18,7 +18,7 @@ export class CustomValidatorService {
       maxlength: `O Tamanho máximo para o campo é ${
         validatorValue?.requiredLength ?? '0'
       } caracteres.`,
-      email: 'Endereço de email inválido.',
+      email: 'Endereço de e-mail inválido.',
     };
     return config[validatorName];
   }
