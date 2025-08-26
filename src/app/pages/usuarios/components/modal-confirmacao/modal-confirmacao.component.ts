@@ -42,7 +42,7 @@ export class ModalConfirmacaoComponent {
           verticalPosition: 'top',
         });
       },
-      error: (error) => {
+      error: (error: any) => {
         this._ref.close(true);
         this._snackService.open(`Erro ao deletar usuário, ${error}`, 'Fechar', {
           duration: 3000,
