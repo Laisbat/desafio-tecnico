@@ -7,7 +7,6 @@ import { CustomValidatorService } from './custom-validator.service';
   selector: 'app-form-validation-errors',
   standalone: false,
   templateUrl: './form-validation-errors.component.html',
-  styleUrl: './form-validation-errors.component.scss',
 })
 export class FormValidationErrorsComponent {
   @Input() control!: AbstractControl | null;

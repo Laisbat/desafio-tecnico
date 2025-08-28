@@ -13,9 +13,9 @@ import { UsuariosService } from '../../../../utils/services/usuarios.service';
 export class ModalConfirmacaoComponent {
   loading = false;
 
-  private _ref = inject(MatDialogRef<ModalConfirmacaoComponent>);
-  private _data = inject(MAT_DIALOG_DATA);
-  private _snackService = inject(MatSnackBar);
+  private readonly _ref = inject(MatDialogRef<ModalConfirmacaoComponent>);
+  private readonly _data = inject(MAT_DIALOG_DATA);
+  private readonly _snackService = inject(MatSnackBar);
 
   private readonly _usuariosService = inject(UsuariosService);
 

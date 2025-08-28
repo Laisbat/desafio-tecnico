@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,8 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ActivatedRoute, Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute, provideRouter, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { FormValidationErrorsComponent } from '../../shared/components/form-validation-errors/form-validation-errors.component';
 import { BlockCharsDirective } from '../../shared/directives/block-chars.directive';
@@ -48,7 +47,6 @@ describe('#UsuariosAdicionarComponent', () => {
       ],
       imports: [
         ReactiveFormsModule,
-        HttpClientTestingModule,
         MatSnackBarModule,
         MatFormFieldModule,
         MatInputModule,
@@ -56,10 +54,11 @@ describe('#UsuariosAdicionarComponent', () => {
         MatCardModule,
         MatProgressSpinnerModule,
         MatIconModule,
-        RouterTestingModule,
         NoopAnimationsModule,
       ],
       providers: [
+        provideHttpClientTesting(),
+        provideRouter([]),
         { provide: UsuariosService, useValue: usuariosServiceSpy },
         { provide: Router, useValue: routerSpy },
         { provide: MatSnackBar, useValue: snackBarSpy },
