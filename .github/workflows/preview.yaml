@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: "22"
 
-      - run: npm ci
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - run: npm run test:prod
 
@@ -34,7 +37,9 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
