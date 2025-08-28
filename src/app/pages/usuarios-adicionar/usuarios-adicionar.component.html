@@ -12,67 +12,78 @@
         </h3>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Nome Completo </mat-label>
-            <input
-              matInput
-              formControlName="name"
-              placeholder="Digite o nome completo"
-              [appBlockChars]="blockedCharacters"
-            />
-            <mat-icon matSuffix>person</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="userForm.get('name')" />
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Nome de Usuário </mat-label>
-            <input
-              matInput
-              formControlName="username"
-              placeholder="Ex: carla_brito"
-              [appBlockChars]="blockedCharacters"
-            />
-            <mat-icon matSuffix>alternate_email</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="userForm.get('username')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Nome Completo </mat-label>
+              <input
+                matInput
+                formControlName="name"
+                placeholder="Digite o nome completo"
+                [appBlockChars]="blockedCharacterName"
+              />
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="userForm.get('name')" />
+          </div>
+
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Nome de Usuário </mat-label>
+              <input
+                matInput
+                formControlName="username"
+                placeholder="Ex: carla_brito"
+                [appBlockChars]="blockedCharacterName"
+              />
+              <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="userForm.get('username')" />
+          </div>
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field full-width">
-            <mat-label>Email </mat-label>
-            <input
-              matInput
-              formControlName="email"
-              type="email"
-              placeholder="usuario@exemplo.com"
-            />
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="userForm.get('email')" />
+          <div class="form-field-group full-width">
+            <mat-form-field appearance="outline" class="form-field full-width">
+              <mat-label>Email </mat-label>
+              <input
+                matInput
+                formControlName="email"
+                type="email"
+                placeholder="usuario@exemplo.com"
+              />
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="userForm.get('email')" />
+          </div>
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Telefone </mat-label>
-            <input
-              matInput
-              formControlName="phone"
-              placeholder="(11) 99999-9999"
-              maxlength="15"
-            />
-            <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="userForm.get('phone')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Telefone </mat-label>
+              <input
+                matInput
+                formControlName="phone"
+                placeholder="(11) 99999-9999"
+                maxlength="15"
+              />
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="userForm.get('phone')" />
+          </div>
 
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Website</mat-label>
-            <input
-              matInput
-              formControlName="website"
-              placeholder="www.exemplo.com"
-            />
-            <mat-icon matSuffix>web</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="userForm.get('website')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Website</mat-label>
+              <input
+                matInput
+                formControlName="website"
+                placeholder="www.exemplo.com"
+              />
+              <mat-icon matSuffix>web</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="userForm.get('website')" />
+          </div>
         </div>
       </div>
 
@@ -83,65 +94,81 @@
         </h3>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Rua</mat-label>
-            <input
-              matInput
-              formControlName="street"
-              placeholder="Nome da rua"
-            />
-            <mat-icon matSuffix>home</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="address.get('street')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Rua</mat-label>
+              <input
+                matInput
+                formControlName="street"
+                placeholder="Nome da rua"
+              />
+              <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="address.get('street')" />
+          </div>
 
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Complemento</mat-label>
-            <input
-              matInput
-              formControlName="suite"
-              placeholder="Apt, Sala, etc."
-            />
-            <mat-icon matSuffix>apartment</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="address.get('suite')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Complemento</mat-label>
+              <input
+                matInput
+                formControlName="suite"
+                placeholder="Apt, Sala, etc."
+              />
+              <mat-icon matSuffix>apartment</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="address.get('suite')" />
+          </div>
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Cidade</mat-label>
-            <input
-              matInput
-              formControlName="city"
-              placeholder="Nome da cidade"
-            />
-            <mat-icon matSuffix>location_city</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="address.get('city')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Cidade</mat-label>
+              <input
+                matInput
+                formControlName="city"
+                placeholder="Nome da cidade"
+              />
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="address.get('city')" />
+          </div>
 
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>CEP</mat-label>
-            <input matInput formControlName="zipcode" placeholder="12345-678" />
-            <mat-icon matSuffix>mail</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="address.get('zipcode')" />
+          <div class="form-field-group">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>CEP</mat-label>
+              <input
+                matInput
+                formControlName="zipcode"
+                placeholder="12345-678"
+              />
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="address.get('zipcode')" />
+          </div>
         </div>
 
         <div class="form-subsection" formGroupName="geo">
           <h4 class="subsection-title">Coordenadas (Opcional)</h4>
           <div class="form-row">
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Latitude</mat-label>
-              <input matInput formControlName="lat" placeholder="-23.5505" />
-              <mat-icon matSuffix>my_location</mat-icon>
-            </mat-form-field>
-            <app-form-validation-errors [control]="geo.get('lat')" />
+            <div class="form-field-group">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Latitude</mat-label>
+                <input matInput formControlName="lat" placeholder="-23.5505" />
+                <mat-icon matSuffix>my_location</mat-icon>
+              </mat-form-field>
+              <app-form-validation-errors [control]="geo.get('lat')" />
+            </div>
 
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Longitude</mat-label>
-              <input matInput formControlName="lng" placeholder="-46.6333" />
-              <mat-icon matSuffix>place</mat-icon>
-            </mat-form-field>
-            <app-form-validation-errors [control]="geo.get('lng')" />
+            <div class="form-field-group">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Longitude</mat-label>
+                <input matInput formControlName="lng" placeholder="-46.6333" />
+                <mat-icon matSuffix>place</mat-icon>
+              </mat-form-field>
+              <app-form-validation-errors [control]="geo.get('lng')" />
+            </div>
           </div>
         </div>
       </div>
@@ -153,42 +180,50 @@
         </h3>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field full-width">
-            <mat-label>Nome da Empresa</mat-label>
-            <input
-              matInput
-              formControlName="name"
-              placeholder="Acme Corporation"
-            />
-            <mat-icon matSuffix>business</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="company.get('name')" />
+          <div class="form-field-group full-width">
+            <mat-form-field appearance="outline" class="form-field full-width">
+              <mat-label>Nome da Empresa</mat-label>
+              <input
+                matInput
+                formControlName="name"
+                placeholder="Acme Corporation"
+              />
+              <mat-icon matSuffix>business</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="company.get('name')" />
+          </div>
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field full-width">
-            <mat-label>Slogan</mat-label>
-            <input
-              matInput
-              formControlName="catchPhrase"
-              placeholder="Slogan da empresa"
+          <div class="form-field-group full-width">
+            <mat-form-field appearance="outline" class="form-field full-width">
+              <mat-label>Slogan</mat-label>
+              <input
+                matInput
+                formControlName="catchPhrase"
+                placeholder="Slogan da empresa"
+              />
+              <mat-icon matSuffix>campaign</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors
+              [control]="company.get('catchPhrase')"
             />
-            <mat-icon matSuffix>campaign</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="company.get('catchPhrase')" />
+          </div>
         </div>
 
         <div class="form-row">
-          <mat-form-field appearance="outline" class="form-field full-width">
-            <mat-label>Área de Negócio</mat-label>
-            <input
-              matInput
-              formControlName="bs"
-              placeholder="Descrição do negócio"
-            />
-            <mat-icon matSuffix>work</mat-icon>
-          </mat-form-field>
-          <app-form-validation-errors [control]="company.get('bs')" />
+          <div class="form-field-group full-width">
+            <mat-form-field appearance="outline" class="form-field full-width">
+              <mat-label>Área de Negócio</mat-label>
+              <input
+                matInput
+                formControlName="bs"
+                placeholder="Descrição do negócio"
+              />
+              <mat-icon matSuffix>work</mat-icon>
+            </mat-form-field>
+            <app-form-validation-errors [control]="company.get('bs')" />
+          </div>
         </div>
       </div>
 

@@ -35,7 +35,7 @@
       <p>Carregando usuários...</p>
     </div>
 
-    <div class="mat-elevation-z8" [hidden]="isLoading">
+    <div class="tabela-scroll" [hidden]="isLoading">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
@@ -96,7 +96,8 @@
       <mat-paginator
         [pageSizeOptions]="[5, 10, 25, 50]"
         aria-label="Selecione a página"
-      />
+      >
+      </mat-paginator>
     </div>
   </div>
 </div>

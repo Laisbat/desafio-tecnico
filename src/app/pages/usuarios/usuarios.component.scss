@@ -3,6 +3,11 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    max-width: 300px;
+  }
 }
 
 .usuarios-header {
@@ -39,12 +44,25 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-  .mat-elevation-z8 {
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabela-scroll {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
     border-radius: 12px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: visible;
+    width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: 768px) {
+      flex: 1;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -71,7 +89,6 @@
 .list-actions {
   display: flex;
   gap: 16px;
-  align-items: center;
   margin-bottom: 24px;
   flex-wrap: wrap;
 
@@ -82,7 +99,7 @@
 
     .mat-mdc-form-field-wrapper {
       border-radius: var(--custom-border-radius) !important;
-      background: rgba(255, 255, 255, 0.9);
+      background: var(--custom-primary-contrast-variant);
       backdrop-filter: blur(10px);
     }
   }
@@ -99,28 +116,30 @@
       margin: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap-reverse;
+    justify-content: end;
+  }
 }
 
 @media (max-width: 768px) {
   .table-container {
-    padding: 0.5rem;
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
-    .mat-elevation-z8 {
-      border-radius: 8px;
+    .tabela-scroll {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+
+    mat-table {
+      min-width: 600px;
     }
   }
-}
-
-.mat-elevation-z8 {
-  margin-bottom: 0;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-}
-
-td.mat-cell:last-child {
-  width: 120px;
-  text-align: center;
 }
 
 .mat-raised-button {
@@ -143,18 +162,38 @@ td.mat-cell:last-child {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(63, 81, 181, 0.04) !important;
+    background-color: var(--custom-secondary-contrast-shadow) !important;
   }
+}
+
+.mat-mdc-cell.mat-column-actions:last-child {
+  padding-bottom: 3px;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .mat-mdc-header-row {
   background: var(--mdc-theme-on-secondary-container);
 
   .mat-mdc-header-cell {
-    color: white;
+    color: var(--custom-primary-contrast);
     font-weight: 600;
     border-bottom: none;
   }
+}
+
+.edit-icon {
+  color: var(--custom-primary);
+}
+
+.delete-icon {
+  color: var(--mdc-theme-on-secondary-container);
+}
+
+.custom-button {
+  background-color: indigo !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .mat-mdc-paginator {
@@ -166,76 +205,20 @@ td.mat-cell:last-child {
   border-top: 1px solid var(--custom-outline);
 }
 
-.edit-icon {
-  color: var(--custom-primary);
-}
+mat-paginator {
+  position: sticky;
+  padding-top: 10px;
+  bottom: 0;
+  z-index: 10;
 
-.delete-icon {
-  color: var(--mdc-theme-on-secondary-container);
-}
-
-.status-indicator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.status-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  display: inline-block;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-
-  &.active {
-    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3),
-      0 0 0 2px rgba(76, 175, 80, 0.1);
-  }
-
-  &.inactive {
-    background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
-    box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3),
-      0 0 0 2px rgba(244, 67, 54, 0.1);
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  @media (max-width: 768px) {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.3s ease;
+    border-top: 1px solid var(--custom-primary-contrast-shadow);
+    box-shadow: 0 -2px 8px var(--custom-primary-contrast-shadow);
+    border-radius: 0 0 12px 12px;
   }
-
-  &.active::before {
-    background-color: rgba(76, 175, 80, 0.3);
-  }
-
-  &.inactive::before {
-    background-color: rgba(244, 67, 54, 0.3);
-  }
-
-  &:hover {
-    transform: scale(1.15);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-    &::before {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.5);
-    }
-  }
-}
-
-.custom-button {
-  background-color: indigo !important;
-  position: relative;
-  overflow: hidden;
 }

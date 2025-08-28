@@ -6,7 +6,6 @@
     rgba(48, 63, 159, 0.1) 100%
   ) !important;
   backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
 }
 
 h2[mat-dialog-title] {
@@ -18,7 +17,6 @@ h2[mat-dialog-title] {
     rgba(48, 63, 159, 0.1) 100%
   ) !important;
   backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
   border: none;
   font-weight: 600;
   position: relative;
@@ -65,7 +63,6 @@ mat-dialog-content {
   padding: 24px;
   background: transparent;
   backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
@@ -89,19 +86,11 @@ mat-dialog-content p:first-child {
   border-radius: var(--custom-border-radius);
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 mat-card {
-  /* background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.2) 0%,
-          rgba(255, 255, 255, 0.12) 50%,
-          rgba(255, 255, 255, 0.18) 100%
-        ) !important; */
   background: transparent !important;
   backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
@@ -125,7 +114,6 @@ mat-card::before {
 mat-card-header {
   background: transparent;
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px !important;
 }
@@ -135,7 +123,6 @@ mat-card-header {
   background-size: cover;
   border: 2px solid rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
@@ -183,7 +170,6 @@ mat-card-subtitle {
     rgba(244, 67, 54, 0.12) 100%
   );
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(244, 67, 54, 0.25);
   border-radius: var(--custom-border-radius);
   border-left: 4px solid rgba(244, 67, 54, 0.8);
@@ -233,7 +219,6 @@ mat-dialog-actions {
     rgba(48, 63, 159, 0.1) 100%
   ) !important;
   backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 0 var(--custom-border-radius-large)
@@ -263,7 +248,6 @@ mat-dialog-actions button {
   min-width: 120px;
   padding: 12px 24px;
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);

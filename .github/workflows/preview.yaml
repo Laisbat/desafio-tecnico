@@ -10,7 +10,24 @@ on:
       - main
 
 jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+
+      - run: npm run test:ci
+
   Deploy-Preview:
+    needs: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,7 +37,9 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli

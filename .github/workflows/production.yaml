@@ -10,6 +10,21 @@ on:
       - main
 
 jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+
+      - run: npm run test:ci
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
