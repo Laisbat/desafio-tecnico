@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/prefer-standalone */
 import { Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,23 +11,23 @@ import { UsuariosService } from '../../../../utils/services/usuarios.service';
   styleUrl: './modal-confirmacao.component.scss',
 })
 export class ModalConfirmacaoComponent {
-  loading: boolean = false;
+  loading = false;
 
   private _ref = inject(MatDialogRef<ModalConfirmacaoComponent>);
   private _data = inject(MAT_DIALOG_DATA);
   private _snackService = inject(MatSnackBar);
 
-  constructor(private readonly _usuariosService: UsuariosService) {}
+  private readonly _usuariosService = inject(UsuariosService);
 
   get name(): string {
-    if (!!this._data.user) {
+    if (this._data.user) {
       return this._data.user.name;
     }
     return 'Error';
   }
 
   get email(): string {
-    if (!!this._data.user) {
+    if (this._data.user) {
       return this._data.user.email;
     }
     return 'Error';
@@ -43,7 +44,7 @@ export class ModalConfirmacaoComponent {
         });
         this.loading = false;
       },
-      error: (error: any) => {
+      error: (error: unknown) => {
         this._ref.close(true);
         this._snackService.open(`Erro ao deletar usuário, ${error}`, 'Fechar', {
           duration: 3000,

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../../shared/interfaces/usuarios.interface';
 
@@ -9,7 +9,7 @@ import { Usuario } from '../../shared/interfaces/usuarios.interface';
 export class UsuariosService {
   private readonly _URL: string = 'https://jsonplaceholder.typicode.com';
 
-  constructor(private readonly _http: HttpClient) {}
+  private readonly _http = inject(HttpClient);
 
   getUsuarios(): Observable<Usuario[]> {
     return this._http.get<Usuario[]>(`${this._URL}/users`);

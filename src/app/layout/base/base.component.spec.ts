@@ -10,6 +10,7 @@ import { of } from 'rxjs';
 import { BaseComponent } from './base.component';
 
 class MockMatIconRegistry {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getNamedSvgIcon(): any {
     return of(document.createElement('svg'));
   }

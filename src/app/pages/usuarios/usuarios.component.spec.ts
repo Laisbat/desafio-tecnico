@@ -131,7 +131,7 @@ describe('#UsuariosComponent', () => {
 
   it('deve aplicar filtro corretamente', () => {
     component.dataSource.data = mockUsuarios;
-    const event = { target: { value: 'Jack' } } as any;
+    const event = { target: { value: 'Jack' } } as unknown as Event;
 
     component.applyFilter(event);
 

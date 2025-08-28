@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @angular-eslint/prefer-standalone */
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,13 +40,13 @@ export class UsuariosAdicionarComponent implements OnInit {
     '>',
   ];
 
-  constructor(
-    private _fb: FormBuilder,
-    private _route: ActivatedRoute,
-    private _router: Router,
-    private snackBar: MatSnackBar,
-    private _usuariosService: UsuariosService
-  ) {
+  private _fb = inject(FormBuilder);
+  private _route = inject(ActivatedRoute);
+  private _router = inject(Router);
+  private snackBar = inject(MatSnackBar);
+  private _usuariosService = inject(UsuariosService);
+
+  constructor() {
     this.userForm = this._fb.group({
       name: [
         '',
@@ -146,7 +147,7 @@ export class UsuariosAdicionarComponent implements OnInit {
       next: (userData) => {
         this.userForm.patchValue(userData);
       },
-      error: (error: any) => {
+      error: (error: unknown) => {
         this.snackBar.open(
           `Erro ao carregar dados do usuário, ${error}`,
           'Fechar',
@@ -176,7 +177,7 @@ export class UsuariosAdicionarComponent implements OnInit {
               });
               this._router.navigate(['/usuarios']);
             },
-            error: (error: any) => {
+            error: (error: unknown) => {
               this.snackBar.open(
                 `Erro ao atualizar usuário, ${error}`,
                 'Fechar',
@@ -199,7 +200,7 @@ export class UsuariosAdicionarComponent implements OnInit {
             });
             this._router.navigate(['/usuarios']);
           },
-          error: (error: any) => {
+          error: (error: unknown) => {
             this.snackBar.open(
               `Erro ao cadastrar usuário, ${error}`,
               'Fechar',
