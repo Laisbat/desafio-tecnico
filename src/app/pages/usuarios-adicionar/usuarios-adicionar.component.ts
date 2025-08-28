@@ -14,7 +14,30 @@ export class UsuariosAdicionarComponent implements OnInit {
   userForm: FormGroup;
   isLoading = false;
   id: number | null = null;
-  blockedCharacters: string[] = [' ', '*'];
+  blockedCharacterName: string[] = [
+    '*',
+    '&',
+    ';',
+    ',',
+    'ˆ',
+    '!',
+    '?',
+    '{',
+    '}',
+    ']',
+    '[',
+    '(',
+    ')',
+    '+',
+    '=',
+    '/',
+    '%',
+    '$',
+    '#',
+    '@',
+    '<',
+    '>',
+  ];
 
   constructor(
     private _fb: FormBuilder,
@@ -28,7 +51,7 @@ export class UsuariosAdicionarComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(3),
+          Validators.minLength(10),
           Validators.maxLength(50),
           Validators.pattern(/^[a-zA-ZÀ-ÿÁÉÍÓÚáéíóúÂÊÎÔÛâêîôûÃÕãõÇç\s]+$/),
         ],
@@ -38,31 +61,44 @@ export class UsuariosAdicionarComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(12),
-          Validators.pattern(/^[a-z0-9_]+$/),
+          Validators.maxLength(15),
+          Validators.pattern(/^[a-zA-Z0-9_]+$/),
         ],
       ],
       email: [
         '',
-        [Validators.required, Validators.email, Validators.maxLength(100)],
+        [
+          Validators.required,
+          Validators.email,
+          Validators.minLength(10),
+          Validators.maxLength(100),
+        ],
       ],
-      status: ['active', Validators.required],
       phone: [
         '',
         [
           Validators.required,
-          Validators.minLength(15),
+          Validators.minLength(10),
           Validators.maxLength(15),
           Validators.pattern(/^\(\d{2}\)\s\d{5}-\d{4}$/),
         ],
       ],
-      website: [''],
+      website: [
+        '',
+        [
+          Validators.pattern(
+            /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/
+          ),
+          Validators.minLength(10),
+          Validators.maxLength(100),
+        ],
+      ],
 
       address: this._fb.group({
-        street: [''],
-        suite: [''],
-        city: [''],
-        zipcode: ['', Validators.pattern(/^\d{5}-\d{3}$/)],
+        street: ['', [Validators.minLength(3), Validators.maxLength(100)]],
+        suite: ['', [Validators.minLength(3), Validators.maxLength(100)]],
+        city: ['', [Validators.minLength(3), Validators.maxLength(100)]],
+        zipcode: ['', [Validators.pattern(/^\d{5}-\d{3}$/)]],
         geo: this._fb.group({
           lat: ['', Validators.pattern(/^-?\d+\.?\d*$/)],
           lng: ['', Validators.pattern(/^-?\d+\.?\d*$/)],
@@ -70,9 +106,9 @@ export class UsuariosAdicionarComponent implements OnInit {
       }),
 
       company: this._fb.group({
-        name: [''],
-        catchPhrase: [''],
-        bs: [''],
+        name: ['', [Validators.minLength(3), Validators.maxLength(100)]],
+        catchPhrase: ['', [Validators.minLength(3), Validators.maxLength(100)]],
+        bs: ['', [Validators.minLength(3), Validators.maxLength(100)]],
       }),
     });
   }
@@ -117,6 +153,7 @@ export class UsuariosAdicionarComponent implements OnInit {
           {
             duration: 3000,
             panelClass: ['error-snackbar'],
+            verticalPosition: 'top',
           }
         );
       },
@@ -135,6 +172,7 @@ export class UsuariosAdicionarComponent implements OnInit {
               this.snackBar.open('Usuário atualizado com sucesso!', 'Fechar', {
                 duration: 3000,
                 panelClass: ['success-snackbar'],
+                verticalPosition: 'top',
               });
               this._router.navigate(['/usuarios']);
             },
@@ -145,6 +183,7 @@ export class UsuariosAdicionarComponent implements OnInit {
                 {
                   duration: 3000,
                   panelClass: ['error-snackbar'],
+                  verticalPosition: 'top',
                 }
               );
               this.isLoading = false;
@@ -156,6 +195,7 @@ export class UsuariosAdicionarComponent implements OnInit {
             this.snackBar.open('Usuário cadastrado com sucesso!', 'Fechar', {
               duration: 3000,
               panelClass: ['success-snackbar'],
+              verticalPosition: 'top',
             });
             this._router.navigate(['/usuarios']);
           },
@@ -166,6 +206,7 @@ export class UsuariosAdicionarComponent implements OnInit {
               {
                 duration: 3000,
                 panelClass: ['error-snackbar'],
+                verticalPosition: 'top',
               }
             );
             this.isLoading = false;
@@ -179,6 +220,7 @@ export class UsuariosAdicionarComponent implements OnInit {
         {
           duration: 3000,
           panelClass: ['warning-snackbar'],
+          verticalPosition: 'top',
         }
       );
     }

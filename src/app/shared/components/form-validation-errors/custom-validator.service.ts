@@ -19,6 +19,7 @@ export class CustomValidatorService {
         validatorValue?.requiredLength ?? '0'
       } caracteres.`,
       email: 'Endereço de e-mail inválido.',
+      pattern: 'Formato inválido.',
     };
     return config[validatorName];
   }

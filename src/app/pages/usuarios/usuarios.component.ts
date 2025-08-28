@@ -9,7 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { Usuario } from '../../shared/interfaces/usuarios.interface';
 import { UsuariosService } from '../../utils/services/usuarios.service';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
@@ -53,8 +52,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
 
   constructor(
     private readonly _usuariosService: UsuariosService,
-    private readonly _dialog: MatDialog,
-    private readonly _router: Router
+    private readonly _dialog: MatDialog
   ) {}
 
   ngOnInit(): void {

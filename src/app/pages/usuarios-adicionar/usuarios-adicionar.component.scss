@@ -36,7 +36,6 @@
 .form-container {
   background: transparent;
   backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--custom-border-radius-large);
   padding: 32px;
@@ -70,7 +69,6 @@
     rgba(255, 255, 255, 0.05) 100%
   );
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--custom-border-radius);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -131,7 +129,6 @@
 .form-row {
   display: flex;
   gap: 16px;
-  margin-bottom: 16px;
 
   &:last-child {
     margin-bottom: 0;
@@ -143,11 +140,24 @@
   }
 }
 
-.form-field {
+.form-field-group {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 
   &.full-width {
     flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+.form-field {
+  flex: 1;
+  width: 100%;
+
+  &.full-width {
+    flex: 1 1 100%;
+    width: 100%;
   }
 
   ::ng-deep {
@@ -157,8 +167,6 @@
         rgba(255, 255, 255, 0.15) 0%,
         rgba(255, 255, 255, 0.08) 100%
       );
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border-radius: var(--custom-border-radius) !important;
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
@@ -185,13 +193,8 @@
       }
     }
 
-    .mat-mdc-form-field-label {
-      color: rgba(0, 0, 0, 0.7);
-      font-weight: 500;
-    }
-
-    .mat-mdc-input-element {
-      color: rgba(0, 0, 0, 0.9);
+    .mdc-floating-label.mat-mdc-floating-label.mdc-floating-label--float-above {
+      color: var(--custom-primary-contrast);
       font-weight: 500;
     }
 
@@ -199,13 +202,37 @@
       color: var(--custom-secondary);
     }
 
-    .mat-mdc-select-arrow {
-      color: var(--custom-secondary);
+    .mat-mdc-input-element {
+      color: var(--mdc-theme-on-secondary-container) !important;
+      opacity: 1;
+      font-weight: 400;
     }
 
-    .mat-hint {
-      color: rgba(0, 0, 0, 0.6);
-      font-size: 0.85rem;
+    .mat-mdc-input-element::placeholder {
+      color: var(--mdc-theme-outline) !important;
+    }
+
+    &.mat-focused {
+      --mdc-filled-text-field-active-indicator-color: var(
+        --mdc-theme-on-secondary-container
+      );
+      --mdc-filled-text-field-focus-active-indicator-color: var(
+        --mdc-theme-on-secondary-container
+      );
+      --mdc-outlined-text-field-focus-outline-color: var(
+        --mdc-theme-on-secondary-container
+      );
+      --mdc-outlined-text-field-outline-color: var(
+        --mdc-theme-on-secondary-container
+      );
+
+      &.mat-icon {
+        color: var(--custom-secondary);
+      }
+    }
+
+    .mat-mdc-select-arrow {
+      color: var(--custom-secondary);
     }
 
     .mat-error {
@@ -235,8 +262,8 @@
 }
 
 .cancel-button {
-  color: var(--custom-primary-contrast);
-  background-color: transparent;
+  color: var(--custom-primary-contrast) !important;
+  background-color: transparent !important;
   border: 1px solid rgba(108, 117, 125, 0.3);
   position: relative;
   overflow: hidden;

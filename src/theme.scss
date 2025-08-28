@@ -1,3 +1,5 @@
+@use "@angular/material" as mat;
+
 $custom-border-radius: 20px;
 
 :root {
@@ -6,25 +8,31 @@ $custom-border-radius: 20px;
   --custom-border-radius-large: #{calc($custom-border-radius * 1.5)};
 
   --custom-primary-contrast: #ffffff;
+  --custom-primary-contrast-variant: #ffffffe6;
+  --custom-primary-contrast-shadow: #0000001a;
+  --custom-secondary-contrast-shadow: #b08fe392;
 
   --custom-secondary: #7c3aed;
   --custom-secondary-light: #8b5cf6;
   --custom-secondary-dark: #6d28d9;
-  --custom-secondary-contrast: #ffffff;
 
-  --mdc-theme-primary: #2563eb;
-  --mdc-theme-on-primary: #ffffff;
   --mdc-theme-primary-container: #dbeafe;
   --mdc-theme-on-primary-container: #1e3a8a;
 
-  --mdc-theme-secondary: #7c3aed;
-  --mdc-theme-on-secondary: #ffffff;
   --mdc-theme-secondary-container: #ede9fe;
   --mdc-theme-on-secondary-container: #5b21b6;
 
   --mdc-theme-error: #dc2626;
 
   --mdc-theme-outline: #d1d5db;
+
+  @include mat.snack-bar-overrides(
+    (
+      container-shape: rounded,
+      button-color: var(--custom-secondary-dark),
+      container-color: var(--custom-secondary-light),
+    )
+  );
 }
 
 .mat-mdc-button-base {
@@ -41,6 +49,29 @@ $custom-border-radius: 20px;
   );
   --mdc-outlined-text-field-focus-outline-color: var(--mdc-theme-primary);
   --mdc-outlined-text-field-outline-color: var(--mdc-theme-outline);
+
+  &.mat-focused {
+    --mdc-filled-text-field-active-indicator-color: var(
+      --mdc-theme-on-secondary-container
+    );
+    --mdc-filled-text-field-focus-active-indicator-color: var(
+      --mdc-theme-on-secondary-container
+    );
+    --mdc-outlined-text-field-focus-outline-color: var(
+      --mdc-theme-on-secondary-container
+    );
+    --mdc-outlined-text-field-outline-color: var(
+      --mdc-theme-on-secondary-container
+    );
+
+    &.mat-icon {
+      color: var(--custom-secondary);
+    }
+  }
+  &.mat-label {
+    --mdc-floating-label-color: var(--mdc-theme-on-secondary-container);
+    --mdc-floating-label-ink-color: var(--mdc-theme-on-secondary-container);
+  }
 }
 
 .mat-mdc-card {

@@ -37,10 +37,11 @@ export class ModalConfirmacaoComponent {
     this._usuariosService.deleteUser(this._data.id).subscribe({
       next: () => {
         this._ref.close(true);
-        this._snackService.open('Usuário deletado com sucesso', 'Fechar', {
+        this._snackService.open('Usuário deletado com sucesso!', 'Fechar', {
           duration: 3000,
           verticalPosition: 'top',
         });
+        this.loading = false;
       },
       error: (error: any) => {
         this._ref.close(true);
@@ -48,8 +49,6 @@ export class ModalConfirmacaoComponent {
           duration: 3000,
           verticalPosition: 'top',
         });
-      },
-      complete: () => {
         this.loading = false;
       },
     });
