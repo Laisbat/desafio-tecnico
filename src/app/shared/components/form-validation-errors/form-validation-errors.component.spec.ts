@@ -132,7 +132,7 @@ describe('#FormValidationErrorsComponent', () => {
       control.markAsTouched();
       component.control = control;
 
-      void component.errorMessage;
+      component.errorMessage;
 
       expect(
         CustomValidatorService.getValidatorErrorMessage
@@ -170,7 +170,7 @@ describe('#FormValidationErrorsComponent', () => {
         testCase.control.markAsTouched();
         component.control = testCase.control;
 
-        void component.errorMessage;
+        component.errorMessage;
 
         expect(
           CustomValidatorService.getValidatorErrorMessage
