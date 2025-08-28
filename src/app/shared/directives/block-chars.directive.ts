@@ -9,7 +9,7 @@ import { NgControl } from '@angular/forms';
 export class BlockCharsDirective {
   @Input('appBlockChars') blocked: string[] = [];
 
-  private _control = inject(NgControl);
+  private readonly _control = inject(NgControl);
 
   @HostListener('keydown', ['$event'])
   onKeyDown(event: KeyboardEvent): void {

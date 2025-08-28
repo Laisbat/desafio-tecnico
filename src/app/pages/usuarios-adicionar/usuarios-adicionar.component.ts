@@ -40,11 +40,11 @@ export class UsuariosAdicionarComponent implements OnInit {
     '>',
   ];
 
-  private _fb = inject(FormBuilder);
-  private _route = inject(ActivatedRoute);
-  private _router = inject(Router);
-  private snackBar = inject(MatSnackBar);
-  private _usuariosService = inject(UsuariosService);
+  private readonly _fb = inject(FormBuilder);
+  private readonly _route = inject(ActivatedRoute);
+  private readonly _router = inject(Router);
+  private readonly snackBar = inject(MatSnackBar);
+  private readonly _usuariosService = inject(UsuariosService);
 
   constructor() {
     this.userForm = this._fb.group({
