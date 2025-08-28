@@ -6,7 +6,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --code-coverage",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
+  },
+  "angular-cli": {
+    "collection": "angular",
+    "version": "19.2.0"
   },
   "private": true,
   "dependencies": {
