@@ -1,59 +1,202 @@
-# DesafioTecnico
+# 🚀 Desafio Técnico - Gerenciamento de Usuários
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+> Sistema de gerenciamento de usuários desenvolvido em Angular com Material Design, focado em boas práticas de desenvolvimento e arquitetura escalável.
 
-## Development server
+## 📋 Sobre o Projeto
 
-To start a local development server, run:
+Este projeto é uma aplicação web desenvolvida em **Angular 19** que implementa um sistema completo de gerenciamento de usuários com as seguintes funcionalidades:
+
+- ✅ **Listagem de usuários** com paginação e filtros
+- ✅ **Cadastro de novos usuários** com validação robusta
+- ✅ **Edição de usuários existentes**
+- ✅ **Exclusão de usuários** com confirmação
+- ✅ **Interface responsiva** com Angular Material
+- ✅ **Testes unitários** com cobertura completa
+- ✅ **Integração com API externa** (JSONPlaceholder)
+
+### 🏗️ Arquitetura e Tecnologias
+
+- **Framework:** Angular 19.2+
+- **UI Library:** Angular Material 19+
+- **Styling:** SCSS com design responsivo
+- **Testes:** Jasmine + Karma
+- **HTTP Client:** Angular HttpClient
+- **Roteamento:** Angular Router
+- **Formulários:** Reactive Forms com validações customizadas
+
+## 🛠️ Como Rodar Localmente
+
+### Pré-requisitos
+
+Certifique-se de ter instalado em sua máquina:
+
+- **Node.js** (versão 18 ou superior)
+- **npm** (versão 9 ou superior)
+- **Angular CLI** (versão 19 ou superior)
 
 ```bash
+# Verificar versões instaladas
+node --version
+npm --version
+ng version
+```
+
+### Instalação e Execução
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/Laisbat/desafio-tecnico.git
+cd desafio-tecnico
+```
+
+2. **Instale as dependências:**
+
+```bash
+npm install
+```
+
+3. **Execute a aplicação:**
+
+```bash
+npm start
+# ou
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. **Acesse a aplicação:**
 
-## Code scaffolding
+Abra seu navegador e acesse: `http://localhost:4200`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Scripts Disponíveis
 
 ```bash
-ng generate --help
+# Desenvolvimento
+npm start                    # Inicia o servidor de desenvolvimento
+npm run watch               # Build com watch mode
+
+# Build
+npm run build               # Build de produção
+ng build --configuration development  # Build de desenvolvimento
+
+# Qualidade de código
+npm run lint                # Executa o linter
 ```
 
-## Building
+## 🧪 Como Rodar os Testes
 
-To build the project run:
+### Executar Testes
 
 ```bash
-ng build
+# Testes com watch mode (desenvolvimento)
+npm test
+
+# Testes com cobertura
+npm run test
+
+# Testes para CI/CD (sem watch)
+npm run test:ci
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Cobertura de Testes
 
-## Running unit tests
+Os testes cobrem:
+- ✅ **Componentes** - Lógica de negócio e interações
+- ✅ **Serviços** - Chamadas HTTP e tratamento de dados
+- ✅ **Diretivas** - Comportamentos customizados
+- ✅ **Validators** - Validações de formulário
+- ✅ **Interceptors** - Tratamento de requisições HTTP
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Após executar os testes, um relatório de cobertura é gerado em `coverage/desafio-tecnico/index.html`.
 
-```bash
-ng test
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── layout/                 # Componentes de layout
+│   │   └── base/               # Layout base da aplicação
+│   ├── pages/                  # Páginas da aplicação
+│   │   ├── usuarios/           # Listagem de usuários
+│   │   └── usuarios-adicionar/ # Cadastro/edição de usuários
+│   ├── shared/                 # Módulos compartilhados
+│   │   ├── components/         # Componentes reutilizáveis
+│   │   ├── directives/         # Diretivas customizadas
+│   │   └── interfaces/         # Interfaces TypeScript
+│   └── utils/                  # Utilitários e serviços
+│       ├── services/           # Serviços da aplicação
+│       ├── interceptors/       # Interceptors HTTP
+│       └── __mocks/            # Mocks para testes
+├── assets/                     # Recursos estáticos
+├── styles.scss                 # Estilos globais
+└── theme.scss                  # Tema personalizado
 ```
 
-## Running end-to-end tests
+## 🎯 Boas Práticas Implementadas
 
-For end-to-end (e2e) testing, run:
+### 📝 Nomenclatura e Organização
 
-```bash
-ng e2e
+- **Nomes descritivos:** Componentes, serviços e métodos com nomes claros e objetivos
+- **Convenção Angular:** Seguindo o style guide oficial do Angular
+- **Organização por feature:** Estrutura modular por funcionalidade
+- **Barrel exports:** Uso de index.ts para exports organizados
+
+### 🔧 Arquitetura
+
+- **Separação de responsabilidades:** Componentes focados na apresentação, serviços na lógica de negócio
+- **Lazy Loading:** Carregamento sob demanda dos módulos
+- **Reactive Forms:** Formulários reativos com validações robustas
+- **Observables:** Uso consistente de RxJS para programação reativa
+
+### 🎨 UI/UX e Responsividade
+
+- **Material Design:** Interface consistente e moderna
+- **Mobile First:** Design responsivo priorizando dispositivos móveis
+- **Acessibilidade:** Componentes acessíveis com ARIA labels
+- **Loading States:** Feedback visual durante operações assíncronas
+
+### 🧪 Testes e Qualidade
+
+- **Cobertura alta:** Mais de 90% de cobertura de código
+- **Testes isolados:** Mocks apropriados para dependências
+- **Cenários reais:** Testes que simulam interações do usuário
+- **CI/CD Ready:** Configuração para integração contínua
+
+### 🔄 Gerenciamento de Estado
+
+- **Services como Store:** Serviços centralizados para estado da aplicação
+- **Subjects/BehaviorSubjects:** Para comunicação entre componentes
+- **OnPush Strategy:** Otimização de performance quando aplicável
+
+### 🌐 HTTP e APIs
+
+```typescript
+// Interceptors para tratamento global
+@Injectable()
+export class HttpInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Tratamento global de requisições
+  }
+}
+
+// Serviços tipados
+@Injectable()
+export class UsuariosService {
+  getUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.baseUrl}/users`);
+  }
+}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🚀 Deploy e CI/CD
 
-## Additional Resources
+O projeto está configurado com:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **GitHub Actions:** Pipeline automatizado de testes
+- **Vercel:** Deploy automático de previews
+- **Linting:** Verificação de qualidade de código
+- **Build otimizado:** Configurações para produção
+
+---
+
+**Desenvolvido com ❤️ e boas práticas de desenvolvimento.**

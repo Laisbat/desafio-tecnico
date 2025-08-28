@@ -1,6 +1,8 @@
+/* eslint-disable @angular-eslint/prefer-standalone */
 import {
   AfterViewInit,
   Component,
+  inject,
   Injectable,
   OnInit,
   ViewChild,
@@ -43,17 +45,15 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
   providers: [{ provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }],
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'email', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'username', 'actions'];
   dataSource = new MatTableDataSource<Usuario>([]);
   isLoading = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(
-    private readonly _usuariosService: UsuariosService,
-    private readonly _dialog: MatDialog
-  ) {}
+  private readonly _usuariosService = inject(UsuariosService);
+  private readonly _dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.loadUsers();
@@ -83,7 +83,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
         this.dataSource.data = users;
         this.isLoading = false;
       },
-      error: (error: any) => {
+      error: (error: unknown) => {
         console.error('Erro ao listar usuários:', error);
         this.isLoading = false;
       },

@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/prefer-standalone */
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { CustomValidatorService } from './custom-validator.service';

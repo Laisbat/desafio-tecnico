@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class HttpInterceptor implements AngularHttpInterceptor {
   intercept(
-    req: HttpRequest<any>,
+    req: HttpRequest<unknown>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<HttpEvent<unknown>> {
     const newHeadrers = req.clone({
       setHeaders: {
         'Content-Type': 'application/json',

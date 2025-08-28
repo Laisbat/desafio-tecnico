@@ -94,14 +94,14 @@ describe('#CustomValidatorService', () => {
 
     it('deve lidar com nome de validador nulo', () => {
       const message = CustomValidatorService.getValidatorErrorMessage(
-        null as any
+        null as unknown as string
       );
       expect(message).toBeUndefined();
     });
 
     it('deve lidar com nome de validador indefinido', () => {
       const message = CustomValidatorService.getValidatorErrorMessage(
-        undefined as any
+        undefined as unknown as string
       );
       expect(message).toBeUndefined();
     });

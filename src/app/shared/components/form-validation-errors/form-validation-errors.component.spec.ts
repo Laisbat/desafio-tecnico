@@ -8,7 +8,6 @@ import { FormValidationErrorsComponent } from './form-validation-errors.componen
 describe('#FormValidationErrorsComponent', () => {
   let component: FormValidationErrorsComponent;
   let fixture: ComponentFixture<FormValidationErrorsComponent>;
-  let customValidatorServiceSpy: jasmine.SpyObj<CustomValidatorService>;
 
   beforeEach(async () => {
     const spy = jasmine.createSpyObj('CustomValidatorService', [
@@ -23,7 +22,7 @@ describe('#FormValidationErrorsComponent', () => {
 
     fixture = TestBed.createComponent(FormValidationErrorsComponent);
     component = fixture.componentInstance;
-    customValidatorServiceSpy = TestBed.inject(
+    TestBed.inject(
       CustomValidatorService
     ) as jasmine.SpyObj<CustomValidatorService>;
 
@@ -69,7 +68,7 @@ describe('#FormValidationErrorsComponent', () => {
     });
 
     it('deve retornar string vazia quando control for undefined', () => {
-      component.control = undefined as any;
+      component.control = undefined as unknown as FormControl;
 
       expect(component.errorMessage).toBe('');
     });
@@ -121,7 +120,6 @@ describe('#FormValidationErrorsComponent', () => {
 
       const result = component.errorMessage;
 
-      // Deve chamar com o primeiro erro encontrado
       expect(
         CustomValidatorService.getValidatorErrorMessage
       ).toHaveBeenCalled();
@@ -134,7 +132,7 @@ describe('#FormValidationErrorsComponent', () => {
       control.markAsTouched();
       component.control = control;
 
-      component.errorMessage;
+      void component.errorMessage;
 
       expect(
         CustomValidatorService.getValidatorErrorMessage
@@ -172,7 +170,7 @@ describe('#FormValidationErrorsComponent', () => {
         testCase.control.markAsTouched();
         component.control = testCase.control;
 
-        component.errorMessage;
+        void component.errorMessage;
 
         expect(
           CustomValidatorService.getValidatorErrorMessage

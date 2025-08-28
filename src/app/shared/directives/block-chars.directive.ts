@@ -1,4 +1,5 @@
-import { Directive, HostListener, Input } from '@angular/core';
+/* eslint-disable @angular-eslint/prefer-standalone */
+import { Directive, HostListener, inject, Input } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
@@ -8,7 +9,7 @@ import { NgControl } from '@angular/forms';
 export class BlockCharsDirective {
   @Input('appBlockChars') blocked: string[] = [];
 
-  constructor(private _control: NgControl) {}
+  private _control = inject(NgControl);
 
   @HostListener('keydown', ['$event'])
   onKeyDown(event: KeyboardEvent): void {

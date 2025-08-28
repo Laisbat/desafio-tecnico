@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/prefer-standalone */
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -108,7 +109,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       const controlSpy = spyOn(component.testControl, 'setValue');
 
@@ -125,7 +126,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       expect(() => {
         directiveInstance.onKeyUp(inputEvent);
@@ -141,7 +142,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       const controlSpy = spyOn(component.testControl, 'setValue');
 
@@ -158,7 +159,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       directiveInstance.onKeyUp(inputEvent);
 
@@ -172,7 +173,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       const controlSpy = spyOn(component.testControl, 'setValue');
 
@@ -187,7 +188,7 @@ describe('#BlockCharsDirective', () => {
     it('deve lidar com target nulo no evento input', () => {
       const inputEvent = {
         target: null,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       expect(() => {
         directiveInstance.onKeyUp(inputEvent);
@@ -197,7 +198,7 @@ describe('#BlockCharsDirective', () => {
     it('deve lidar com target indefinido no evento input', () => {
       const inputEvent = {
         target: undefined,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       expect(() => {
         directiveInstance.onKeyUp(inputEvent);
@@ -273,7 +274,7 @@ describe('#BlockCharsDirective', () => {
 
       const inputEvent = {
         target: mockInput,
-      } as any;
+      } as unknown as KeyboardEvent;
 
       const controlSpy = spyOn(component.testControl, 'setValue');
 
