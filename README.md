@@ -113,6 +113,14 @@ Os testes cobrem:
 
 Após executar os testes, um relatório de cobertura é gerado em `coverage/desafio-tecnico/index.html`.
 
+<img width="832" height="164" alt="image" src="https://github.com/user-attachments/assets/6ab5eb13-3f38-4115-ae0a-cf28c0bd5f38" />
+
+### SEO
+
+## 🕵🏼‍♂️ Lighthouse
+<img width="1043" height="751" alt="image" src="https://github.com/user-attachments/assets/3b1ed618-f52a-42c5-93c2-3fc7b27275c7" />
+
+
 ## 📁 Estrutura do Projeto
 
 ```
