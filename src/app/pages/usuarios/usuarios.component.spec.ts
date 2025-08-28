@@ -73,7 +73,7 @@ describe('#UsuariosComponent', () => {
       'id',
       'name',
       'email',
-      'status',
+      'username',
       'actions',
     ]);
   });

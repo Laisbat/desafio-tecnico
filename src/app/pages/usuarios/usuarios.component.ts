@@ -43,7 +43,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
   providers: [{ provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }],
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'email', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'username', 'actions'];
   dataSource = new MatTableDataSource<Usuario>([]);
   isLoading = false;
 
