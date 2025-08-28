@@ -2,6 +2,10 @@
 
 > Sistema de gerenciamento de usuários desenvolvido em Angular com Material Design, focado em boas práticas de desenvolvimento e arquitetura escalável.
 
+## 🌐 Demo Online
+
+**🔗 Acesse a aplicação:** [https://desafio-tecnico-coral.vercel.app/usuarios](https://desafio-tecnico-coral.vercel.app/usuarios)
+
 ## 📋 Sobre o Projeto
 
 Este projeto é uma aplicação web desenvolvida em **Angular 19** que implementa um sistema completo de gerenciamento de usuários com as seguintes funcionalidades:
