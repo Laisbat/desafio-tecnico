@@ -1,0 +1,69 @@
+<div class="flex flex-row p-4 w-full justify-between" [formGroup]="loginForm">
+  <!-- Logo -->
+  <div class="p-6">
+    <div class="flex items-center">
+      <mat-icon>group</mat-icon>
+      <div>
+        <h2 class="font-bold">Bem vindo ao</h2>
+        <h4>Usuários do sistema</h4>
+      </div>
+    </div>
+
+    <img src="login-background.svg" alt="Login Background" />
+  </div>
+
+  <!-- Container Formulário de Login -->
+  <div
+    class="flex flex-col justify-between gap-8 p-8 w-3/6 bg-white rounded-2xl"
+  >
+    <!-- Títulos -->
+    <div>
+      <h2 class="font-bold">Acesse sua conta</h2>
+      <p class="font-light text-xs text-gray-600">
+        Informe seu e-mail e senha para entrar
+      </p>
+    </div>
+    <!-- Inputs de Email e Senha -->
+    <div class="flex flex-col gap-10">
+      <!-- Input de Email -->
+      <div class="flex flex-col gap-2 border-b border-gray-300 pb-2">
+        <span class="text-gray-600 text-xs">E-MAIL</span>
+        <div class="flex">
+          <mat-icon>mail</mat-icon>
+          <input
+            class="text-gray-400 text-sm focus:outline-none"
+            type="text"
+            placeholder="Seu e-mail cadastrado"
+            formControlName="email"
+          />
+        </div>
+      </div>
+      <!-- Input de Senha -->
+      <div class="flex flex-col gap-2 border-b border-gray-300 pb-2">
+        <span class="text-gray-600 text-xs">SENHA</span>
+        <div class="flex">
+          <mat-icon>lock</mat-icon>
+          <input
+            class="text-gray-400 text-sm focus:outline-none"
+            type="text"
+            placeholder="Sua senha de acesso"
+            formControlName="password"
+          />
+        </div>
+      </div>
+
+      @if(loginErrorMessage) {
+      <p class="font-bold text-red-500">{{ loginErrorMessage }}</p>
+      }
+    </div>
+    <!-- Botão de Login -->
+    <button
+      class="flex justify-between items-center mt-auto p-4 rounded-xl cursor-pointer bg-[#F24D0D] active:translate-y-2 duration-200 ease-in-out transition"
+      (click)="login()"
+      (keydown.enter)="login()"
+    >
+      <span class="text-white">Acessar</span>
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

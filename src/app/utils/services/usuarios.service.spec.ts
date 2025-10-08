@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 
-import { Usuario } from '../../shared/interfaces/usuarios.interface';
+import { Usuario } from '../../shared/interfaces/usuarios';
 import { mockUsuarios } from '../__mocks/usuariosMock';
 import { UsuariosService } from './usuarios.service';
 

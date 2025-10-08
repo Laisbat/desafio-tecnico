@@ -15,6 +15,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import ICONS from '../assets/custom-icons';
+import { LoginComponent } from './pages/login/login.component';
 registerLocaleData(localePt);
 
 @NgModule({
@@ -27,6 +28,7 @@ registerLocaleData(localePt);
     MatSidenavModule,
     MatToolbar,
     MatIconModule,
+    LoginComponent,
   ],
   providers: [
     {

@@ -1,4 +1,4 @@
-import { Usuario } from '../../shared/interfaces/usuarios.interface';
+import { Usuario } from '../../shared/interfaces/usuarios';
 
 export const mockUsuarios: Usuario[] = [
   {
